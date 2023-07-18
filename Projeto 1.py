@@ -21,6 +21,7 @@ plt.figure(figsize=(17, 8))
 plt.barh(x['brand'],x['prices.amountMax'])
 plt.xlabel('valor em dolar')
 plt.title('Preço médio de sapatos para as 15 principais marcas')
+plt.legend(['Temperatura'], loc = 'right', fontsize=15)
 plt.show()
 
 
