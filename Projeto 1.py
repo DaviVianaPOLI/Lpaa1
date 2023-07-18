@@ -17,12 +17,29 @@ df = pd.read_csv(r'C:\Users\daviv\OneDrive\Área de Trabalho\pyton\archive\Dataf
 x=df2.nlargest(15,'prices.amountMax')
 df2 = df.drop_duplicates(subset=['brand'])
 
-plt.figure(figsize=(17, 8))
-plt.barh(x['brand'],x['prices.amountMax'])
-plt.xlabel('valor em dolar')
-plt.title('Preço médio de sapatos para as 15 principais marcas')
-plt.legend(['Temperatura'], loc = 'right', fontsize=15)
+plt.figure(figsize=(12, 8))
+
+# Inverte a ordem das marcas no eixo y
+marcas = x['brand'][::-1]
+valores = x['prices.amountMax'][::-1]
+
+# Define um esquema de cores mais agradável
+colors = plt.cm.tab20(range(len(marcas)))
+
+# Cria o gráfico de barras horizontais
+plt.barh(marcas, valores, color=colors)
+
+# Adiciona rótulos dentro das barras
+for i, v in enumerate(valores):
+    plt.text(v + 0.2, i, str(v), color='black', va='center')
+
+plt.xlabel('Valor em dólar', fontsize=12)
+plt.ylabel('Marcas', fontsize=12)
+plt.title('Preço médio de sapatos para as 15 principais marcas', fontsize=14)
+
+plt.tight_layout()
 plt.show()
+
 
 
 
