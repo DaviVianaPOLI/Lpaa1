@@ -1,8 +1,9 @@
 """
 Projeto 1 de LPAA - Análise e Exploração de Dados 
-Aircraft Wildlife Strikes, 1990-2015
+Women's Shoes Prices Analysis
 
-@author: EvertonPaiva01
+@author: DaviVianaPOLI
+
 
 """
 #Importando as bibliotecas que serão utilizadas no projeto
