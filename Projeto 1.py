@@ -12,10 +12,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 #Carregando o arquivo dataset
-df = pd.read_csv(r'C:\Users\daviv\OneDrive\Área de Trabalho\pyton\archive\Datafiniti_Womens_Shoes.csv')
+df = pd.read_csv(r'C:\Users\Acer\Documents\pyton\lpaa1\Datafiniti_Womens_Shoes.csv')
 
-x=df2.nlargest(15,'prices.amountMax')
-df2 = df.drop_duplicates(subset=['brand'])
+x=df.nlargest(15,'prices.amountMax')
+df = df.drop_duplicates(subset=['brand'])
 
 plt.figure(figsize=(12, 8))
 
@@ -37,7 +37,6 @@ plt.xlabel('Valor em dólar', fontsize=12)
 plt.ylabel('Marcas', fontsize=12)
 plt.title('Preço médio de sapatos para as 15 principais marcas', fontsize=14)
 
-plt.tight_layout()
 plt.show()
 
 
