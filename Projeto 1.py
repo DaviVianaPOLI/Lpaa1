@@ -11,17 +11,30 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+from plott import Plott
+
 #Carregando o arquivo dataset
 df = pd.read_csv(r'C:\Users\Acer\Documents\pyton\lpaa1\Datafiniti_Womens_Shoes.csv')
 
-x=df.nlargest(15,'prices.amountMax')
-df = df.drop_duplicates(subset=['brand'])
+##########  Organizando pra colocar o gráfico  ##########
 
-plt.figure(figsize=(12, 8))
+df2 = df.drop_duplicates(subset=['brand'])
+df2=df2.nlargest(15,'prices.amountMax')
 
 # Inverte a ordem das marcas no eixo y
-marcas = x['brand'][::-1]
-valores = x['prices.amountMax'][::-1]
+marcas = df2['brand'][::-1]
+valores = df2['prices.amountMax'][::-1]
+
+combined_df = pd.DataFrame({'coluna1': marcas, 'coluna2': valores})
+
+combined_df = combined_df.set_index(combined_df.columns[0])
+
+combined_df[combined_df.columns[0]] = pd.to_numeric(combined_df[combined_df.columns[0]], errors='coerce')
+
+Plott.barcolor(df2, 'Valor em dólar', 'Marcas', 'Preço médio de sapatos para as 15 principais marcas')
+
+'''
+plt.figure(figsize=(12, 8), dpi=250)
 
 # Define um esquema de cores mais agradável
 colors = plt.cm.tab20(range(len(marcas)))
@@ -39,7 +52,7 @@ plt.title('Preço médio de sapatos para as 15 principais marcas', fontsize=14)
 
 plt.show()
 
-
+'''
 
 
 
