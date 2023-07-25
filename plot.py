@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 class PLT:
     def barra(x,title,xlabel,ylabel):
@@ -27,4 +28,3 @@ class PLT:
         plt.xlabel(xlabel)
         plt.ylabel(ylabel)
         plt.show()
-

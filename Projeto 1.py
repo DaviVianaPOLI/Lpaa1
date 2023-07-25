@@ -51,7 +51,7 @@ PLT.boxplot([df[df['brand'] == brand]['prices.amountMax'] for brand in top_10_br
 PLT.hist(df['prices.amountMax'],'Histograma de Preços de Sapatos Femininos','Preço','Frequência')
 
 
-
+PLT.distrib(df)
 
 
 
