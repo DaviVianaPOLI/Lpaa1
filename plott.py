@@ -27,8 +27,8 @@ class Plott:
         plt.barh(g.index, coluna1, color=colors)
 
         # Adiciona rótulos dentro das barras
-        for i, v in enumerate(g.values):
-            plt.text(v + 0.2, i, str(v), color='black', va='center')
+        #for i, v in enumerate(g.values):
+         #   plt.text(v + 0.2, i, str(v), color='black', va='center')
 
         plt.xlabel(xlabel, fontsize=12)
         plt.ylabel(ylabel, fontsize=12)

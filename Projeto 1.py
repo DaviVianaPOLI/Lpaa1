@@ -11,7 +11,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from plott import Plott
+from plot import PLT
 
 #Carregando o arquivo dataset
 df = pd.read_csv(r'C:\Users\Acer\Documents\pyton\lpaa1\Datafiniti_Womens_Shoes.csv')
@@ -32,6 +32,24 @@ combined_df = combined_df.set_index(combined_df.columns[0])
 combined_df[combined_df.columns[0]] = pd.to_numeric(combined_df[combined_df.columns[0]], errors='coerce')
 
 Plott.barcolor(df2, 'Valor em dólar', 'Marcas', 'Preço médio de sapatos para as 15 principais marcas')
+
+
+#Top 10 marcas
+
+# Selecionar colunas relevantes
+df = df[['brand', 'prices.amountMax']]
+
+# Remover linhas com preços ausentes (NaN)
+df = df.dropna(subset=['prices.amountMax'])
+
+# Calcular o preço médio de cada marca
+average_prices_by_brand = df.groupby('brand')['prices.amountMax'].mean()
+
+# Selecionar as top 10 marcas com base no preço médio
+top_10_brands = average_prices_by_brand.nlargest(10)
+
+# Plotar o gráfico de barras
+PLT.barra(top_10_brands,"Top 10 Marcas de Sapatos Femininos por Preço Médio","Marca","Preço Médio")
 
 '''
 plt.figure(figsize=(12, 8), dpi=250)
