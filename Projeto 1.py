@@ -42,6 +42,10 @@ PLT.barra(df['brand'].value_counts().nlargest(10),'Top 10 Marcas com Mais Sapato
 
 ###########################################################################################
 
+#Um boxplot permite ver a distribuição dos preços de sapatos por marca e ajuda a identificar possíveis outliers
+PLT.boxplot([df[df['brand'] == brand]['prices.amountMax'] for brand in top_10_brands.index],top_10_brands.index,'Boxplot de Preços por Marca (Top 10)','Preço','Marca')
+
+
 
 
 
