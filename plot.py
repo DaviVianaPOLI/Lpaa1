@@ -28,3 +28,10 @@ class PLT:
         plt.xlabel(xlabel)
         plt.ylabel(ylabel)
         plt.show()
+
+    def pizza(x):
+        x.plot(kind='pie', autopct='%1.1f%%', startangle=90)
+        plt.axis('equal')  # Faz o gráfico de pizza circular
+        plt.title('Gráfico de Pizza: Proporção de Tipos de Sapatos Femininos')
+        plt.ylabel('')  # Remove o rótulo do eixo y
+        plt.show()

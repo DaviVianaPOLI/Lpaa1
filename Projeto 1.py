@@ -50,9 +50,17 @@ PLT.boxplot([df[df['brand'] == brand]['prices.amountMax'] for brand in top_10_br
 #Um histograma para visualizar a distribuição dos preços dos sapatos no dataset.
 PLT.hist(df['prices.amountMax'],'Histograma de Preços de Sapatos Femininos','Preço','Frequência')
 
+#Grafico de pizza das marcas por categoria de sapatos
 
-PLT.distrib(df)
+# Contar o número de sapatos de cada tipo
+contagem_por_tipo = df['categories'].value_counts()
+contagem_por_tipo[11:] = contagem_por_tipo[11:].sum()
+contagem_por_tipo = contagem_por_tipo[:12]
+contagem_por_tipo.index.values[11]= "Outros"
 
+
+# Gráfico de pizza
+PLT.pizza(contagem_por_tipo)
 
 
 
